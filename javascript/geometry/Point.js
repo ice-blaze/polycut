@@ -17,4 +17,12 @@ export default class Point {
 			this.y / point.y,
 		)
 	}
+
+	multiply(point) {
+		return new Point(
+			this.x * point.x,
+			this.y * point.y,
+		)
+
+	}
 }

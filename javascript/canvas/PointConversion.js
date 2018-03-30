@@ -12,6 +12,10 @@ export default class PointConversion {
 		return pixelPoint.divide(this.widthHeight)
 	}
 
+	convertPercentageToCanvas (pixelPercentage) {
+		return pixelPercentage.multiply(this.widthHeight)
+	}
+
 	convertWorldPointToPercentagePoint(worldClickPoint) {
 		const canvasPoint = this.convertWorldPointToCanvasPixelPoint(worldClickPoint)
 		const percentagePoint = this.convertPixelPointToPercentagePoint(canvasPoint)

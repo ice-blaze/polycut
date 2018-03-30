@@ -1,6 +1,7 @@
 export default class Drawing {
 	constructor(canvas) {
 		this.context = canvas.context
+		this.pointConversion = canvas.pointConversion
 		this.widthHeight = canvas.widthHeight
 	}
 
@@ -9,8 +10,8 @@ export default class Drawing {
 		this.context.fillRect(0,0,this.widthHeight.x,this.widthHeight.y);
 	}
 
-	redrawWithElements () {
+	redrawWithElements (polygons) {
 		this.drawBackground()
-		// draw elements
+		polygons.draw(this.context, this.pointConversion)
 	}
 }
