@@ -1,6 +1,6 @@
 import * as TypeCheck from "../tools/TypeCheck.js"
 import Point from "./Point.js"
-import Draw from "./Draw.js"
+import Draw from "./DrawPolygon.js"
 
 export default class Polygon {
 	static defaultTriangle() {
@@ -14,11 +14,6 @@ export default class Polygon {
 	constructor(points = Polygon.defaultTriangle()) {
 		TypeCheck.isArrayType(points, Point)
 		this.points = points
-	}
-
-	draw(context, pointConversion) {
-		const draw = new Draw(context, this.points, pointConversion)
-		draw.draw()
 	}
 
 	// split(line) {

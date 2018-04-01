@@ -10,10 +10,4 @@ export default class Polygons {
 	split(line) {
 		// TODO return list of polygons
 	}
-
-	draw(context, pointConversion) {
-		this.polygons.forEach(polygon => {
-			polygon.draw(context, pointConversion)
-		})
-	}
 }
