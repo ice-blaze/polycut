@@ -8,12 +8,12 @@ export default class Polygons {
 	}
 
 	isPointInIt(point) {
-		// this.polygons.forEach(polygon => {
-		// 	if(polygon.isPointInIt(point)) {
-		// 		return polygon
-		// 	}
-		// })
-		return this.polygons[0]
+		for (const polygon of this.polygons) {
+			if (polygon.isPointInIt(point)) {
+				return polygon
+			}
+		}
+
 		return false
 	}
 

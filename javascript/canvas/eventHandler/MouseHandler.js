@@ -38,7 +38,9 @@ export default class MouseHandler {
 		}
 
 		const mouseEventPoint = getMouseEventPoint(event)
-		const movingPolygon = this.splitPolygons.isPointInIt(event)
+		const movedPointPercentage = this.pointConversion.convertPixelPointToPercentagePoint(mouseEventPoint)
+		const movingPolygon = this.splitPolygons.isPointInIt(movedPointPercentage)
+
 		if (movingPolygon) {
 			this.moveState = true
 			this.movingPolygon = movingPolygon
@@ -55,13 +57,13 @@ export default class MouseHandler {
 		const mouseEventPoint = getMouseEventPoint(event)
 
 		if (this.moveState) {
+			console.log(this.moveState)
 			const movedPoint = new Point(
 				event.movementX,
 				event.movementY,
 			)
 			const movedPointPercentage = this.pointConversion.convertPixelPointToPercentagePoint(movedPoint)
 			this.movingPolygon.move(movedPointPercentage)
-			// movePolygon(mouseEventPoint)
 		} else {
 			this.splitter.endPoint = mouseEventPoint
 		}
@@ -69,10 +71,6 @@ export default class MouseHandler {
 	}
 
 	clickUp(event) {
-		if (!isMainButton(event)) {
-			return
-		}
-
 		const mouseEventPoint = getMouseEventPoint(event)
 
 		if (this.moveState) {
