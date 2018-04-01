@@ -7,6 +7,16 @@ export default class Polygons {
 		this.polygons = polygons
 	}
 
+	isPointInIt(point) {
+		// this.polygons.forEach(polygon => {
+		// 	if(polygon.isPointInIt(point)) {
+		// 		return polygon
+		// 	}
+		// })
+		return this.polygons[0]
+		return false
+	}
+
 	split(line) {
 		// TODO return list of polygons
 	}

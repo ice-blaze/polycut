@@ -4,6 +4,13 @@ export default class Point {
 		this.y = y
 	}
 
+	add(point) {
+		return new Point(
+			this.x + point.x,
+			this.y + point.y,
+		)
+	}
+
 	sub(point) {
 		return new Point(
 			this.x - point.x,

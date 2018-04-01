@@ -1,6 +1,5 @@
 import * as TypeCheck from "../tools/TypeCheck.js"
 import Point from "./Point.js"
-import Draw from "./DrawPolygon.js"
 
 export default class Polygon {
 	static defaultTriangle() {
@@ -14,6 +13,17 @@ export default class Polygon {
 	constructor(points = Polygon.defaultTriangle()) {
 		TypeCheck.isArrayType(points, Point)
 		this.points = points
+	}
+
+	move(movedPoint) {
+		this.points = this.points.map(point => {
+			return point.add(movedPoint)
+		})
+	}
+
+	isPointInIt(point) {
+		return false
+		// TODO
 	}
 
 	// split(line) {

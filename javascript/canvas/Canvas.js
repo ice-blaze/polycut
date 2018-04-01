@@ -12,9 +12,9 @@ export default class Canvas {
 		this.context = elem.getContext("2d")
 		this.addEventListener = elem.addEventListener
 
-		this.pointConversion = new PointConversion(this)
+		this.pointConversion = new PointConversion(this.widthHeight)
 		this.splitter = new Splitter(this.context, this.drawing)
-		this.drawing = new Drawing(this, polygons, this.splitter)
-		this.eventHandler = new EventHandler(elem, this.drawing, this.splitter)
+		this.drawing = new Drawing(this, polygons)
+		this.eventHandler = new EventHandler(elem, this, polygons)
 	}
 }

@@ -1,6 +1,6 @@
 export default class PointConversion {
-	constructor(canvas) {
-		this.widthHeight = canvas.widthHeight
+	constructor(widthHeight) {
+		this.widthHeight = widthHeight
 	}
 
 	convertPixelPointToPercentagePoint (pixelPoint) {
