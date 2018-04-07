@@ -1,3 +1,4 @@
+import Line from "../../geometry/Line.js"
 import Point from "../../geometry/Point.js"
 import Polygon from "../../geometry/Polygon.js"
 
@@ -57,7 +58,6 @@ export default class MouseHandler {
 		const mouseEventPoint = getMouseEventPoint(event)
 
 		if (this.moveState) {
-			console.log(this.moveState)
 			const movedPoint = new Point(
 				event.movementX,
 				event.movementY,
@@ -77,8 +77,12 @@ export default class MouseHandler {
 			this.moveState = false
 		} else {
 			this.splitter.endPoint = mouseEventPoint
+			const percentageSplitterLine = new Line(
+				this.pointConversion.convertPixelPointToPercentagePoint(this.splitter.startPoint),
+				this.pointConversion.convertPixelPointToPercentagePoint(this.splitter.endPoint),
+			)
+			this.splitPolygons.split(percentageSplitterLine)
 			this.drawing.redrawWithElements()
-			// TODO split !
 		}
 	}
 }

@@ -18,6 +18,13 @@ export default class Polygons {
 	}
 
 	split(line) {
-		// TODO return list of polygons
+		let newPolygons = []
+		for (const polygon of this.polygons) {
+			newPolygons = newPolygons.concat(
+				polygon.split(line)
+			)
+		}
+
+		this.polygons = newPolygons
 	}
 }
